@@ -1,7 +1,7 @@
 package soap
 
 import (
-	"go-upnp-playground/service/contentdirectory"
+	"upnp-mediaserver/service/contentdirectory"
 	"log"
 )
 

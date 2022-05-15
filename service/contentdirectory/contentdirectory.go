@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/xml"
 	"fmt"
-	"go-upnp-playground/epgstation"
+	"upnp-mediaserver/epgstation"
 	"log"
 	"time"
 )

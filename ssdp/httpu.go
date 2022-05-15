@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"go-upnp-playground/bufferpool"
+	"upnp-mediaserver/bufferpool"
 	"io"
 	"log"
 	"net"

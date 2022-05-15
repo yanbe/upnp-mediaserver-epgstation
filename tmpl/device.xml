@@ -8,11 +8,11 @@
 	<device> 
 		<deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
 		<INMPR03>1.0</INMPR03>
-		<friendlyName>go-upnp-playground</friendlyName> 
-		<manufacturer>manufacturer name</manufacturer> 
+		<friendlyName>UPnP MediaServer for EPGStation</friendlyName> 
+		<manufacturer>https://github.com/yanbe/upnp-mediaserver-epgstation</manufacturer> 
 		<manufacturerURL/> 
-		<modelDescription>long user-friendly title</modelDescription> 
-		<modelName>go-upnp-playground</modelName> 
+		<modelDescription>UPnP MediaServer for EPGStation</modelDescription> 
+		<modelName>upnp-mediaserver-epgstation</modelName> 
 		<modelNumber>0.0.1</modelNumber> 
 		<UDN>uuid:{{.uuid}}</UDN> 
 		<serviceList>

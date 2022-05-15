@@ -2,7 +2,7 @@ package soap
 
 import (
 	"encoding/xml"
-	"go-upnp-playground/service/contentdirectory"
+	"upnp-mediaserver/service/contentdirectory"
 )
 
 type Request struct {

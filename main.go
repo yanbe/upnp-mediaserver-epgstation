@@ -3,8 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
-	"go-upnp-playground/service"
-	"go-upnp-playground/ssdp"
+	"upnp-mediaserver/service"
+	"upnp-mediaserver/ssdp"
 	"log"
 	"net"
 

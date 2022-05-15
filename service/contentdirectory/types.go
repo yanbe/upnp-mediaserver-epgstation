@@ -3,7 +3,7 @@ package contentdirectory
 import (
 	"encoding/xml"
 	"fmt"
-	"go-upnp-playground/epgstation"
+	"upnp-mediaserver/epgstation"
 	"log"
 	"path/filepath"
 	"strconv"

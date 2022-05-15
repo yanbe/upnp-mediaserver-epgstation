@@ -1,20 +1,20 @@
 #!/bin/bash
 #
 # chkconfig: 35 95 05
-# description: go-upnp-playground.
+# description: upnp-mediaserver.
 
-# Run at startup: sudo chkconfig go-upnp-playground on
+# Run at startup: sudo chkconfig upnp-mediaserver    on
 
 # Load functions from library
 . /etc/init.d/functions
 
 # Name of the application
-app="go-upnp-playground"
+app="upnp-mediaserver"
 
 # Start the service
 run() {
   echo -n $"Starting $app:"
-  cd /usr/local/projects/go-upnp-playground
+  cd /usr/local/projects/upnp
   ./$app > /var/log/$app.log 2> /var/log/$app.err < /dev/null &
   
   sleep 1

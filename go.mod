@@ -1,6 +1,6 @@
-module go-upnp-playground
+module upnp-mediaserver
 
-go 1.16
+go 1.18
 
 require (
 	github.com/deepmap/oapi-codegen v1.10.1

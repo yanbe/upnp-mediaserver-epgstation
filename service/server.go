@@ -12,10 +12,10 @@ import (
 	"text/template"
 	"time"
 
-	"go-upnp-playground/bufferpool"
-	"go-upnp-playground/epgstation"
-	"go-upnp-playground/service/contentdirectory"
-	"go-upnp-playground/soap"
+	"upnp-mediaserver/bufferpool"
+	"upnp-mediaserver/epgstation"
+	"upnp-mediaserver/service/contentdirectory"
+	"upnp-mediaserver/soap"
 
 	"github.com/google/uuid"
 )
