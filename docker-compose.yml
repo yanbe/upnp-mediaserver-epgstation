@@ -1,0 +1,4 @@
+upnp-contentdirectory:
+  build: .
+  volumes:
+    - .:/go/src/app

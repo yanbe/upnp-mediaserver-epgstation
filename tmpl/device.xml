@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0"> 
+	<specVersion> 
+		<major>1</major> 
+		<minor>0</minor> 
+	</specVersion> 
+	<URLBase>{{.URLBase}}</URLBase>
+	<device> 
+		<deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
+		<INMPR03>1.0</INMPR03>
+		<friendlyName>go-upnp-playground</friendlyName> 
+		<manufacturer>manufacturer name</manufacturer> 
+		<manufacturerURL/> 
+		<modelDescription>long user-friendly title</modelDescription> 
+		<modelName>go-upnp-playground</modelName> 
+		<modelNumber>0.0.1</modelNumber> 
+		<UDN>uuid:{{.uuid}}</UDN> 
+		<serviceList>
+			<service>
+				<serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+				<serviceId>urn:schemas-upnp-org:service:ConnectionManager</serviceId>				
+				<SCPDURL>/ConnectionManager/scpd.xml</SCPDURL>
+				<controlURL>/ConnectionManager/control.xml</controlURL>
+				<eventSubURL>/ConnectionManager/event.xml</eventSubURL>
+			</service>		
+			<service>
+				<serviceType>urn:schemas-upnp-org:service:ContentDirectory:1</serviceType>
+				<serviceId>urn:schemas-upnp-org:service:ContentDirectory</serviceId>				
+				<SCPDURL>/ContentDirectory/scpd.xml</SCPDURL>
+				<controlURL>/ContentDirectory/control.xml</controlURL>
+				<eventSubURL>/ContentDirectory/event.xml</eventSubURL>
+			</service>		
+		</serviceList> 
+	</device>
+</root>
