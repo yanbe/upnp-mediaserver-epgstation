@@ -2,3 +2,4 @@ mediaserver:
   build: .
   volumes:
     - .:/go/src/app
+  net: host
