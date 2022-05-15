@@ -26,7 +26,7 @@ func localIP() (net.IP, error) {
 			return netIP.IP, nil
 		}
 	}
-	return nil, errors.New("could not get local IP addres")
+	return nil, errors.New("could not get local IP address")
 }
 
 func main() {

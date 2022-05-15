@@ -2,4 +2,7 @@ mediaserver:
   build: .
   volumes:
     - .:/go/src/app
+  environment:
+    TZ: Asia/Tokyo
+    EPGSTATION: 192.168.10.10:8888
   net: host
