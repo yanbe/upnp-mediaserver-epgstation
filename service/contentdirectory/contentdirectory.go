@@ -49,9 +49,13 @@ func Setup(ServiceURLBase string) {
 	serviceURLBase = ServiceURLBase
 
 	rootContainer := NewContainer("0", nil, "Root")
+	log.Println("Setup Recorded Container")
 	recordedContainer := setupRecordedContainer(rootContainer)
+	log.Println("Setup Genres Container")
 	setupGenresContainer(rootContainer)
+	log.Println("Setup Channels Container")
 	setupChannelsContainer(rootContainer)
+	log.Println("Setup Rules Container")
 	setupRulesContainer(rootContainer)
 
 	log.Printf("Setup ContentDirectory complete. %d items found", recordedContainer.ChildCount)
@@ -74,6 +78,11 @@ func setupRecordedContainer(parent *Container) *Container {
 			res, err := epgstation.EPGStation.GetVideosVideoFileIdDurationWithResponse(context.Background(), epgstation.PathVideoFileId(videoFile.Id))
 			if err != nil {
 				log.Fatal(err)
+			}
+			if res.JSONDefault != nil {
+				// Some videoFile may deleted from filesystem manually.  In such case, EPGstation returns error 
+				log.Printf("Error (code: %d %s): %s", res.JSONDefault.Code, res.JSONDefault.Message, *res.JSONDefault.Errors)
+				continue
 			}
 			videoFileIdDurationMap[videoFile.Id] = time.Duration(res.JSON200.Duration * float32(time.Second))
 		}

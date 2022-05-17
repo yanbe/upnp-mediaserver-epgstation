@@ -156,7 +156,10 @@ func NewItem(Parent *Container, recordedItem *epgstation.RecordedItem, videoFile
 
 	resources := make([]Res, len(*recordedItem.VideoFiles))
 	for i, videoFile := range *recordedItem.VideoFiles {
-		resources[i] = NewResource(&videoFile, videoFileIdDurationMap[videoFile.Id])
+		// Some videoFile may deleted from filesystem manually. In such case, mapping entry not found 
+		if duration, ok := videoFileIdDurationMap[videoFile.Id]; ok {
+			resources[i] = NewResource(&videoFile, duration)
+		}
 	}
 	item := &Item{
 		Id:         ObjectID(strconv.Itoa(int(recordedItem.Id))),
