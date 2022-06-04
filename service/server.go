@@ -96,7 +96,15 @@ func recordedVideoStreamHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set(k, vs[0])
 	}
 	w.WriteHeader(res.StatusCode)
-	io.Copy(w, res.Body)
+        if res.ContentLength > 0 {
+		io.CopyN(w, res.Body, res.ContentLength)
+	} else {
+		for {
+			if _, err := io.Copy(w, res.Body); err != nil {
+				break
+			}
+		}
+	}
 }
 
 // A Server defines parameters for running an HTTPU server.
