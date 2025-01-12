@@ -191,6 +191,7 @@ type ChannelItem struct {
 
 	// service id
 	ServiceId ServiceId `json:"serviceId"`
+	Type      *float32  `json:"type,omitempty"`
 }
 
 // ChannelItems defines model for ChannelItems.
@@ -916,6 +917,7 @@ type ScheduleChannleItem struct {
 
 	// service id
 	ServiceId ServiceId `json:"serviceId"`
+	Type      *float32  `json:"type,omitempty"`
 }
 
 // 番組表の番組データ

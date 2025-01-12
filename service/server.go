@@ -67,6 +67,7 @@ func parseTimeSeekHeader(header string) (time.Duration, string) {
 
 func recordedVideoStreamHandler(w http.ResponseWriter, r *http.Request) {
 	videoFileId := r.URL.Query().Get("videoFileId")
+       	log.Printf("videoFileId: %s", videoFileId)
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/videos/%s", epgstation.ServerAPIRoot, videoFileId), nil)
 	if err != nil {
 		log.Fatal(err)
@@ -76,8 +77,9 @@ func recordedVideoStreamHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	timeSeekReqHeader := r.Header.Get("Timeseekrange.dlna.org")
 	if timeSeekReqHeader != "" {
+        	log.Printf("Timeseekrange.dlna.org: %s", timeSeekReqHeader)
 		startDuration, startStr := parseTimeSeekHeader(timeSeekReqHeader)
-		resource := contentdirectory.GetObject(videoFileId).(*contentdirectory.Res)
+		resource := contentdirectory.GetResourceObject(videoFileId).(*contentdirectory.Res)
 		elapsedRatio := float64(startDuration) / float64(resource.DurationNS)
 		startByte := int(elapsedRatio * float64(resource.Size))
 		req.Header.Set("Range", fmt.Sprintf("bytes=%d-%d", startByte, resource.Size-1))

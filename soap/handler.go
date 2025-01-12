@@ -6,13 +6,14 @@ import (
 	"net/http"
 	"reflect"
 	"regexp"
+	"log"
 )
 
 const actionNameRegexp = `"urn:schemas-upnp-org:service:ContentDirectory:1#(.+)"`
 
 func HandleAction(r *http.Request) []byte {
 	actionName := regexp.MustCompile(actionNameRegexp).FindStringSubmatch(r.Header.Get("SoapAction"))[1]
-
+	log.Printf("Handling action: %s", actionName);
 	data, _ := ioutil.ReadAll(r.Body)
 	var soapReq Request
 	xml.Unmarshal(data, &soapReq)

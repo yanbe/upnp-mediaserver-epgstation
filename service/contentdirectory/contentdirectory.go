@@ -224,3 +224,7 @@ func MarshalDirectChildren(objectID string, StartingIndex int, RequestedCount in
 func GetObject(objectID string) interface{} {
 	return registory[ObjectID(objectID)]
 }
+
+func GetResourceObject(objectID string) interface{} {
+	return resRegistory[ObjectID(objectID)]
+}

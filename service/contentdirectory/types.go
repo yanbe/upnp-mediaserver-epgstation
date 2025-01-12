@@ -14,6 +14,7 @@ type ObjectID string
 
 var JST = time.FixedZone("Asia/Tokyo", 9*60*60)
 var registory = make(map[ObjectID]interface{})
+var resRegistory = make(map[ObjectID]interface{})
 
 type Container struct {
 	XMLName xml.Name `xml:"urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/ container"`
@@ -145,7 +146,7 @@ func NewResource(videoFile *epgstation.VideoFile, duration time.Duration) Res {
 		DurationNS:   duration,
 	}
 	objectId := strconv.Itoa(int(videoFile.Id))
-	registory[ObjectID(objectId)] = &res
+	resRegistory[ObjectID(objectId)] = &res
 	return res
 }
 
